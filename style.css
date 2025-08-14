@@ -1,0 +1,201 @@
+body {
+  font-family: "Noto Sans JP", "Hiragino Sans", "ヒラギノ角ゴ ProN W3",
+    "Hiragino Kaku Gothic ProN", Meiryo, "メイリオ", Osaka, "MS PGothic", arial,
+    helvetica, sans-serif;
+  color: #585858;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+}
+header {
+  background: linear-gradient(45deg, #15adab 0%, #4db7c1 50%, #ffffff 100%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+/*--------------------------headerの指定--------------------------*/
+.header-wrapper {
+  height: 100px;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+}
+.header-logo {
+  width: 300px;
+  height: auto;
+}
+/*--------------------------titleエリアの指定--------------------------*/
+.title-area {
+  position: relative;
+  padding-bottom: 12px;
+}
+.title-area::after {
+  width: 100%;
+  height: 12px;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(to right, #15adab, #e6eff7, #15adab);
+}
+.sp-new-line {
+  display: none;
+}
+/*--------------------------formエリアの指定--------------------------*/
+.form-title-en {
+  font-size: 64px;
+  color: #15adab;
+  margin: 0;
+}
+.form-title-ja {
+  font-size: 24px;
+  margin-bottom: 0;
+  color: #353834;
+}
+.form-title-auxiliary {
+  color: #999999;
+  margin-top: 5px;
+}
+.main-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.container {
+  display: flex;
+  max-width: 1200px;
+  margin: 2em auto;
+  background: #fff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.left-column {
+  flex: 1 1 50%;
+  padding: 2em;
+  background: #f0f4f8;
+}
+.service-title,
+.service-description {
+  text-align: center;
+}
+.service-image {
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+}
+.business-information-lists {
+  list-style: none;
+  padding: 0;
+}
+.contents-wrappre {
+  padding: 0 1rem;
+}
+.right-column {
+  flex: 1 1 40%;
+  padding: 2em;
+}
+.form-field {
+  margin-bottom: 1.5em;
+}
+.form-field label {
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+.required label::after {
+  content: "*必須";
+  color: red;
+  font-size: 10px;
+}
+.form-field .inline {
+  display: none;
+}
+.form-field input[type="text"],
+.form-field input[type="email"],
+.form-field textarea {
+  width: 100%;
+  padding: 0.6em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.submit {
+  text-align: center;
+}
+.submit input[type="submit"] {
+  padding: 0.8em 2em;
+  position: relative;
+  display: flex;
+  background: #15adab;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 240px;
+  padding: 10px 35px;
+  color: #ffffff;
+  transition: 0.3s ease-in-out;
+  font-weight: 600;
+  border-radius: 8px;
+  border-bottom: solid 5px #0e706e;
+  border-left: unset;
+  border-top: unset;
+  border-right: unset;
+  cursor: pointer;
+}
+.submit input[type="submit"]:hover {
+  background: #70cbd3;
+}
+/*--------------------------footerの指定--------------------------*/
+.copy {
+  display: block;
+  width: 100%;
+  padding: 1rem 0;
+  text-align: center;
+  background: #e8e8e8;
+}
+/*--------------------------レスポンシブの指定--------------------------*/
+@media (max-width: 1020px) {
+  .header-wrapper {
+    padding: 0 1rem;
+  }
+  .header-logo {
+    width: 240px;
+  }
+  .main-wrapper,
+  .contents-wrappre {
+    padding: 0 6rem;
+  }
+  .form-title-en {
+    font-size: 42px;
+  }
+  .form-title-ja {
+    font-size: 18px;
+  }
+  .container {
+    flex-direction: column;
+  }
+  .left-column,
+  .right-column {
+    flex: 1 1 100%;
+    padding: 1.5em;
+  }
+}
+/*---------------------------スマホレスポンシブ指定---------------------------*/
+@media (max-width: 660px) {
+  .header-wrapper {
+    height: 50px;
+  }
+  .header-logo {
+    width: 160px;
+  }
+  .main-wrapper,
+  .contents-wrappre {
+    padding: 0 1rem;
+  }
+  .form-title-en {
+    font-size: 32px;
+  }
+}
+@media (max-width: 430px) {
+  .sp-new-line {
+    display: block;
+  }
+}
