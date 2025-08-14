@@ -1,1 +1,111 @@
-<h1>sample</h1>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="お問い合わせの詳細文です" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>お問い合わせフォーム</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-wrapper">
+            <a href="https://solution.pro-vision.jp/">
+                <img class="header-logo"
+                    src="https://provision-transaction.s3.ap-northeast-1.amazonaws.com/marketing/02_mail/HDX/form/logoWhite__x.png">
+            </a>
+        </div>
+    </header>
+    <main>
+        <div class="">
+            <div class="title-area" style="padding: 2rem 0;">
+                <div class="main-wrapper">
+                    <h2 class="form-title-en">Contact</h2>
+                    <h2 class="form-title-ja" style="font-size:1.5em; margin-bottom: 0.4em;">お問い合わせフォーム</h2>
+                    <p class="form-title-auxiliary">お見積り依頼やサービスについてのご質問など、お気軽にお問合せください。</p>
+                </div>
+            </div>
+            <div class="contents-wrappre">
+                <div class="container">
+                    <div class="left-column">
+                        <h3 class="service-title">脆弱性診断サービス</h3>
+                        <p class="service-description">
+                            「もし攻撃されたら…」<br class="sp-new-line">その不安に、今こそ備えを！<br class="pc-new-line">
+                            ホワイトハッカーによる実践的セキュリティ診断
+                        </p>
+                        <img class="service-image"
+                            src="https://provision-transaction.s3.ap-northeast-1.amazonaws.com/marketing/02_mail/HDX/SecurityScorecard/SecurityScorecardServiceForm.png">
+                        <ul class="business-information-lists">
+                            <li class="phone-number">Tel.045-872-4000</li>
+                            <li class="business-hours">営業時間/09:00 ~ 18:00</li>
+                            <li class="regular-closing-day">定休日/土曜日・日曜日・祝日</li>
+                        </ul>
+                    </div>
+                    <div class="right-column">
+                        <form action="#" method="post"id="pardot-form"><!--actionは空にしてある-->
+                            <div class="form-field  last_name required">
+                                <label for="1068932_534862pi_1068932_534862">お名前(姓)</label>
+                                <input type="text" name="1068932_534862pi_1068932_534862"
+                                    id="1068932_534862pi_1068932_534862" value="" class="text" size="30" maxlength="80"
+                                    onchange="" onfocus="" placeholder="例）田中">
+                            </div>
+                            <div class="form-field  first_name required">
+                                <label for="1068932_534865pi_1068932_534865">お名前(名)</label>
+                                <input type="text" name="1068932_534865pi_1068932_534865"
+                                    id="1068932_534865pi_1068932_534865" value="" class="text" size="30" maxlength="40"
+                                    onchange="" onfocus="" placeholder="例）太郎">
+                            </div>
+                            <div class="form-field  company required">
+                                <label for="1068932_534868pi_1068932_534868">会社名</label>
+                                <input type="text" name="1068932_534868pi_1068932_534868"
+                                    id="1068932_534868pi_1068932_534868" value="" class="text" size="30" maxlength="255"
+                                    onchange="" onfocus="" placeholder="例）株式会社ProVision">
+                            </div>
+                            <div class="form-field  email required">
+                                <label for="1068932_534871pi_1068932_534871">メール</label>
+                                <input type="text" name="1068932_534871pi_1068932_534871"
+                                    id="1068932_534871pi_1068932_534871" value="" class="text" size="30" maxlength="255"
+                                    onchange="" onfocus="" placeholder="例）example@sample.com">
+                            </div>
+                            <div class="form-field  phone required">
+                                <label for="1068932_534874pi_1068932_534874">電話番号</label>
+                                <input type="text" name="1068932_534874pi_1068932_534874"
+                                    id="1068932_534874pi_1068932_534874" value="" class="text" size="30" maxlength="40"
+                                    onchange="" onfocus="" placeholder="例）0000000000">
+                            </div>
+                            <div class="form-field  comments required">
+                                <label for="1068932_534877pi_1068932_534877">お問い合わせ内容</label>
+                                <textarea name="1068932_534877pi_1068932_534877" id="1068932_534877pi_1068932_534877"
+                                    onchange="" cols="40" rows="10" class="standard"
+                                    placeholder="お問い合わせ内容をご記載ください"></textarea>
+                            </div>
+                            <div class="form-field  CustomObject1718092319464 required">
+                                <label for="1068932_534880pi_1068932_534880">当社の個人情報保護方針に同意の上、送信してください。</label>
+                                <span class="value"><span><input type="checkbox"
+                                            name="1068932_534880pi_1068932_534880_6663358"
+                                            id="1068932_534880pi_1068932_534880_6663358" value="6663358"
+                                            onchange=""><label class="inline"
+                                            for="1068932_534880pi_1068932_534880_6663358">同意</label></span></span>
+                                <small><a class="privacy-link" href="https://www.pro-vision.jp/privacy/"target="_top">個人情報保護方針</a>に同意する</small>
+                            </div>
+                            <p style="position:absolute; width:190px; left:-9999px; top: -9999px;visibility:hidden;">
+                                <label for="pi_extra_field">Comments</label>
+                                <input type="text" name="pi_extra_field" id="pi_extra_field">
+                            </p>
+                            <div class="submit">
+                                <input type="submit" value="送信">
+                          </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </main>
+    <footer>
+        <small class="copy">© ProVision Inc. All Rights Reserved.</small>
+    </footer>
+    <script src="common.js" defer></script>
+</body>
+</html>
