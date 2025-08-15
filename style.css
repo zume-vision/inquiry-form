@@ -95,16 +95,18 @@ header {
 }
 .form-field {
   margin-bottom: 1.5em;
+  position: relative;
 }
 .form-field label {
-  display: block;
-  margin-bottom: 0.5em;
   font-weight: bold;
+  display: inline-block;
+  margin-bottom: 4px;
 }
 .required label::after {
   content: "*必須";
-  color: red;
+  color: #fe2759;
   font-size: 10px;
+  margin: 0 0 0 0.5em;
 }
 .form-field .inline {
   display: none;
@@ -117,6 +119,19 @@ header {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+.form-field .error-msg {
+  color: #fe2759;
+  font-size: 0.85rem;
+  margin-left: 8px;
+  font-weight: 600;
+}
+
+input.invalid,
+textarea.invalid {
+  background-color: #ffe6e6;
+  border-color: #fe2759;
+}
+
 .submit {
   text-align: center;
 }
@@ -140,8 +155,23 @@ header {
   border-right: unset;
   cursor: pointer;
 }
+
 .submit input[type="submit"]:hover {
   background: #70cbd3;
+}
+
+.parts_ckbox {
+  margin: 0;
+  padding: 0;
+  display: block;
+  text-align: center;
+}
+
+.CustomObject1718092319464 > .error-msg {
+  margin: 0;
+  padding: 0;
+  display: block;
+  text-align: center;
 }
 /*--------------------------footerの指定--------------------------*/
 .copy {
@@ -192,6 +222,11 @@ header {
   }
   .form-title-en {
     font-size: 32px;
+  }
+
+  .form-field .error-msg {
+    display: block;
+    margin: 4px 0 0 0;
   }
 }
 @media (max-width: 430px) {
