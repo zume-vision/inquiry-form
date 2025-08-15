@@ -3,25 +3,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Placeholder設定
   const placeholders = [
-    {
-      name: "1068932_534862pi_1068932_534862",
-      text: "例）田中",
-    },
-    {
-      name: "1068932_534865pi_1068932_534865",
-      text: "例）太郎",
-    },
-    {
-      name: "1068932_534868pi_1068932_534868",
-      text: "例）株式会社ProVision",
-    },
-    {
-      name: "1068932_534871pi_1068932_534871",
-      text: "例）example@sample.com",
-    },
+    { name: "1068932_534862pi_1068932_534862", text: "例）田中" },
+    { name: "1068932_534865pi_1068932_534865", text: "例）太郎" },
+    { name: "1068932_534868pi_1068932_534868", text: "例）株式会社ProVision" },
+    { name: "1068932_534871pi_1068932_534871", text: "例）example@sample.com" },
     {
       name: "1068932_534874pi_1068932_534874",
-      text: "例）0000000000",
+      text: "例）0000000000 (ハイフンなし半角)",
     },
     {
       name: "1068932_534877pi_1068932_534877",
@@ -32,12 +20,42 @@ document.addEventListener("DOMContentLoaded", function () {
     const input = form.querySelector(
       `input[name="${item.name}"], textarea[name="${item.name}"]`
     );
-    if (input) {
-      input.setAttribute("placeholder", item.text);
-    }
+    if (input) input.setAttribute("placeholder", item.text);
   });
 
-  // 送信時バリデーション
+  // エラーメッセージ表示 or クリア
+  function showFieldError(inputEl, message) {
+    const field = inputEl.closest(".form-field");
+    if (!field) return;
+
+    const label = field.querySelector("label");
+    if (!label) return;
+
+    // 差し替え or 無い場合に生成
+    let msg = field.querySelector(".error-msg");
+    if (!msg) {
+      msg = document.createElement("span");
+      msg.className = "error-msg";
+      label.after(msg);
+    }
+    msg.textContent = message;
+
+    inputEl.classList.add("invalid");
+    inputEl.setAttribute("aria-invalid", "true");
+  }
+
+  function clearFieldError(inputEl) {
+    const field = inputEl.closest(".form-field");
+    if (field) {
+      const msg = field.querySelector(".error-msg");
+      if (msg) msg.remove();
+    }
+    inputEl.classList.remove("invalid");
+    inputEl.removeAttribute("aria-invalid");
+    // 背景色リセット
+    inputEl.style.backgroundColor = "";
+  }
+
   form.addEventListener("submit", function (e) {
     let hasError = false;
     let errorMessages = [];
@@ -61,40 +79,44 @@ document.addEventListener("DOMContentLoaded", function () {
     const inquiryInput = form.querySelector(
       'textarea[name="1068932_534877pi_1068932_534877"]'
     );
+    const consentInput = form.querySelector(
+      'input[name="1068932_534880pi_1068932_534880_6663358"]'
+    );
 
-    // 全フィールド背景色リセット
-    [
+    const inputs = [
       lastNameInput,
       firstNameInput,
       companyInput,
       emailInput,
       phoneInput,
       inquiryInput,
-    ].forEach(function (input) {
-      if (input) {
-        input.style.backgroundColor = ""; // 元に戻す
-      }
+      consentInput,
+    ];
+
+    // エラー表示クリア
+    inputs.forEach(function (el) {
+      if (el) clearFieldError(el);
     });
 
     // 姓
     if (lastNameInput && lastNameInput.value.trim() === "") {
       hasError = true;
       errorMessages.push("姓を入力してください。");
-      lastNameInput.style.backgroundColor = "#ffe6e6"; // 赤系
+      showFieldError(lastNameInput, "入力してください");
     }
 
     // 名
     if (firstNameInput && firstNameInput.value.trim() === "") {
       hasError = true;
       errorMessages.push("名を入力してください。");
-      firstNameInput.style.backgroundColor = "#ffe6e6";
+      showFieldError(firstNameInput, "入力してください");
     }
 
     // 会社名
     if (companyInput && companyInput.value.trim() === "") {
       hasError = true;
       errorMessages.push("会社名を入力してください。");
-      companyInput.style.backgroundColor = "#ffe6e6";
+      showFieldError(companyInput, "入力してください");
     }
 
     // メール
@@ -103,11 +125,11 @@ document.addEventListener("DOMContentLoaded", function () {
       if (emailValue === "") {
         hasError = true;
         errorMessages.push("メールアドレスを入力してください。");
-        emailInput.style.backgroundColor = "#ffe6e6";
+        showFieldError(emailInput, "入力してください");
       } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
         hasError = true;
         errorMessages.push("正しいメールアドレスを入力してください。");
-        emailInput.style.backgroundColor = "#ffe6e6";
+        showFieldError(emailInput, "正しい形式で入力してください");
       }
     }
 
@@ -117,11 +139,11 @@ document.addEventListener("DOMContentLoaded", function () {
       if (phoneValue === "") {
         hasError = true;
         errorMessages.push("電話番号を入力してください。");
-        phoneInput.style.backgroundColor = "#ffe6e6";
+        showFieldError(phoneInput, "入力してください");
       } else if (!/^\d+$/.test(phoneValue)) {
         hasError = true;
         errorMessages.push("電話番号は半角数字のみで入力してください。");
-        phoneInput.style.backgroundColor = "#ffe6e6";
+        showFieldError(phoneInput, "半角数字のみで入力してください");
       }
     }
 
@@ -129,7 +151,14 @@ document.addEventListener("DOMContentLoaded", function () {
     if (inquiryInput && inquiryInput.value.trim() === "") {
       hasError = true;
       errorMessages.push("お問い合わせ内容を入力してください。");
-      inquiryInput.style.backgroundColor = "#ffe6e6";
+      showFieldError(inquiryInput, "入力してください");
+    }
+
+    // 個人情報保護方針に同意する
+    if (consentInput && !consentInput.checked) {
+      hasError = true;
+      errorMessages.push("個人情報保護方針に同意してください。");
+      showFieldError(consentInput, "同意してください");
     }
 
     if (hasError) {
