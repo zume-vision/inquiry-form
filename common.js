@@ -140,10 +140,10 @@ document.addEventListener("DOMContentLoaded", function () {
         hasError = true;
         errorMessages.push("電話番号を入力してください。");
         showFieldError(phoneInput, "入力してください");
-      } else if (!/^\d+$/.test(phoneValue)) {
+      } else if (!/^\d+$/.test(phoneValue) || phoneValue.length < 10) {
         hasError = true;
-        errorMessages.push("電話番号は半角数字のみで入力してください。");
-        showFieldError(phoneInput, "半角数字のみで入力してください");
+        errorMessages.push("電話番号の形式で入力してください");
+        showFieldError(phoneInput, "電話番号の形式で入力してください");
       }
     }
 
@@ -162,8 +162,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (hasError) {
-      alert(errorMessages.join("\n"));
       e.preventDefault();
+      window.scrollTo(0, 0);
     }
   });
 });
