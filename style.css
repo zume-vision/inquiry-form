@@ -225,6 +225,11 @@ textarea.invalid {
 }
 /*---------------------------スマホレスポンシブ指定---------------------------*/
 @media (max-width: 660px) {
+  input,
+  select,
+  textarea {
+    font-size: 14px;
+  }
   .header-wrapper {
     height: 50px;
   }
