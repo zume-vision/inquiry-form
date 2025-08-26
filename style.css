@@ -122,8 +122,23 @@ header {
 .form-field .error-msg {
   color: #fe2759;
   font-size: 0.85rem;
-  margin-left: 8px;
   font-weight: 600;
+  margin: 0 0 3px 0;
+}
+
+.error-msg {
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+#form-error-summary {
+  display: none;
+  border: 2px solid #fe2759;
+  padding: 1em;
+  margin-bottom: 1em;
+  color: #fe2759;
+  background: #fff0f0;
 }
 
 input.invalid,
@@ -226,7 +241,7 @@ textarea.invalid {
 
   .form-field .error-msg {
     display: block;
-    margin: 4px 0 0 0;
+    margin: 0px 0 0 0;
   }
 }
 @media (max-width: 430px) {
