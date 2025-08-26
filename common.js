@@ -102,21 +102,21 @@ document.addEventListener("DOMContentLoaded", function () {
     if (lastNameInput && lastNameInput.value.trim() === "") {
       hasError = true;
       errorMessages.push("姓を入力してください。");
-      showFieldError(lastNameInput, "入力してください");
+      showFieldError(lastNameInput, "必須項目です");
     }
 
     // 名
     if (firstNameInput && firstNameInput.value.trim() === "") {
       hasError = true;
       errorMessages.push("名を入力してください。");
-      showFieldError(firstNameInput, "入力してください");
+      showFieldError(firstNameInput, "必須項目です");
     }
 
     // 会社名
     if (companyInput && companyInput.value.trim() === "") {
       hasError = true;
       errorMessages.push("会社名を入力してください。");
-      showFieldError(companyInput, "入力してください");
+      showFieldError(companyInput, "必須項目です");
     }
 
     // メール
@@ -125,11 +125,14 @@ document.addEventListener("DOMContentLoaded", function () {
       if (emailValue === "") {
         hasError = true;
         errorMessages.push("メールアドレスを入力してください。");
-        showFieldError(emailInput, "入力してください");
+        showFieldError(emailInput, "必須項目です");
       } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
         hasError = true;
         errorMessages.push("正しいメールアドレスを入力してください。");
-        showFieldError(emailInput, "正しい形式で入力してください");
+        showFieldError(
+          emailInput,
+          "正しい形式(例: xxx@yyy.com)で入力してください"
+        );
       }
     }
 
@@ -139,11 +142,14 @@ document.addEventListener("DOMContentLoaded", function () {
       if (phoneValue === "") {
         hasError = true;
         errorMessages.push("電話番号を入力してください。");
-        showFieldError(phoneInput, "入力してください");
+        showFieldError(phoneInput, "必須項目です");
       } else if (!/^\d+$/.test(phoneValue) || phoneValue.length < 10) {
         hasError = true;
         errorMessages.push("電話番号の形式で入力してください");
-        showFieldError(phoneInput, "電話番号の形式で入力してください");
+        showFieldError(
+          phoneInput,
+          "正しい形式(ハイフンなし半角)で入力してください"
+        );
       }
     }
 
@@ -151,19 +157,18 @@ document.addEventListener("DOMContentLoaded", function () {
     if (inquiryInput && inquiryInput.value.trim() === "") {
       hasError = true;
       errorMessages.push("お問い合わせ内容を入力してください。");
-      showFieldError(inquiryInput, "入力してください");
+      showFieldError(inquiryInput, "必須項目です");
     }
 
     // 個人情報保護方針に同意する
     if (consentInput && !consentInput.checked) {
       hasError = true;
       errorMessages.push("個人情報保護方針に同意してください。");
-      showFieldError(consentInput, "同意してください");
+      showFieldError(consentInput, "必須項目です");
     }
 
     if (hasError) {
       e.preventDefault();
-      window.scrollTo(0, 0);
     }
   });
 });
